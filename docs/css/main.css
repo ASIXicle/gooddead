@@ -1,6 +1,5 @@
 /* ==========================================================================
-   Holden Matarazzo - A Home for the Good Dead
-   Refined Portfolio Stylesheet
+   Holden Matarazzo - Portfolio
    ========================================================================== */
 
 /* Font Faces */
@@ -108,7 +107,91 @@ a:hover {
   padding: calc(var(--spacing-unit) * 4) var(--spacing-unit) calc(var(--spacing-unit) * 3);
 }
 
-/* Gallery */
+.site-header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-header a:hover {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Series Index Grid
+   ========================================================================== */
+
+.series-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-unit) calc(var(--spacing-unit) * 3);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--spacing-unit) * 2);
+}
+
+.series-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.series-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.series-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.series-card:hover img {
+  transform: scale(1.03);
+  opacity: 0.85;
+}
+
+.series-card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-style: italic;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+@media (min-width: 600px) {
+  .series-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--spacing-unit) * 1.5);
+  }
+}
+
+@media (min-width: 900px) {
+  .series-grid {
+    padding: 0 calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+  }
+}
+
+/* ==========================================================================
+   Series Gallery Page
+   ========================================================================== */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
 .gallery {
   width: 100%;
   max-width: var(--max-width-image);
@@ -142,65 +225,6 @@ a:hover {
 
 .gallery-item:hover img {
   opacity: 0.85;
-}
-
-/* Info Section */
-.site-info {
-  max-width: var(--max-width-content);
-  margin: 0 auto;
-  padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
-  text-align: center;
-}
-
-.site-info p {
-  font-size: 0.95rem;
-  line-height: 1.8;
-}
-
-.site-info p + p {
-  margin-top: 1.5rem;
-}
-
-.link-eth {
-  color: var(--color-link-eth);
-}
-
-.link-btc {
-  color: var(--color-link-btc);
-}
-
-.link-font {
-  color: var(--color-link-font);
-}
-
-/* Footer */
-.site-footer {
-  margin-top: auto;
-  padding: calc(var(--spacing-unit) * 2) var(--spacing-unit) calc(var(--spacing-unit) * 3);
-  text-align: center;
-}
-
-.pgp-signature {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.7rem;
-  line-height: 1.4;
-  color: var(--color-text-muted);
-  white-space: pre-wrap;
-  word-break: break-all;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: var(--spacing-unit);
-  background: rgba(0, 0, 0, 0.03);
-  border-radius: 4px;
-}
-
-/* Utility Classes */
-.text-small {
-  font-size: 0.85rem;
-}
-
-.text-muted {
-  color: var(--color-text-muted);
 }
 
 /* ==========================================================================
@@ -245,7 +269,6 @@ a:hover {
   transform: scale(1);
 }
 
-/* Close button */
 .lightbox-close {
   position: fixed;
   top: 1.25rem;
@@ -264,7 +287,6 @@ a:hover {
   opacity: 1;
 }
 
-/* Controls bar */
 .lightbox-controls {
   display: flex;
   align-items: center;
@@ -297,7 +319,6 @@ a:hover {
   font-family: 'Libre Baskerville', Georgia, serif;
 }
 
-/* Navigation arrows */
 .lightbox-nav {
   position: fixed;
   top: 50%;
@@ -324,7 +345,71 @@ a:hover {
   right: 1rem;
 }
 
-/* Responsive Adjustments */
+/* ==========================================================================
+   Info Section & Footer
+   ========================================================================== */
+
+.site-info {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+  text-align: center;
+}
+
+.site-info p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.site-info p + p {
+  margin-top: 1.5rem;
+}
+
+.link-eth {
+  color: var(--color-link-eth);
+}
+
+.link-btc {
+  color: var(--color-link-btc);
+}
+
+.link-font {
+  color: var(--color-link-font);
+}
+
+.site-footer {
+  margin-top: auto;
+  padding: calc(var(--spacing-unit) * 2) var(--spacing-unit) calc(var(--spacing-unit) * 3);
+  text-align: center;
+}
+
+.pgp-signature {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-unit);
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+}
+
+/* Utility Classes */
+.text-small {
+  font-size: 0.85rem;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
 @media (min-width: 768px) {
   .gallery {
     padding: 0 calc(var(--spacing-unit) * 2);
@@ -371,7 +456,8 @@ a:hover {
 
 /* Print Styles */
 @media print {
-  .gallery-item {
+  .gallery-item,
+  .series-card {
     break-inside: avoid;
     page-break-inside: avoid;
   }
