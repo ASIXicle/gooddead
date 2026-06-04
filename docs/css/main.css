@@ -216,6 +216,10 @@ a:hover {
   text-decoration: none;
 }
 
+.gallery-item a:hover {
+  opacity: 1;
+}
+
 .gallery-item img {
   width: 100%;
   height: auto;
