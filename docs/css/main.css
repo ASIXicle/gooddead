@@ -346,7 +346,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   Info Section & Footer
+   Info Section
    ========================================================================== */
 
 .site-info {
@@ -377,25 +377,7 @@ a:hover {
   color: var(--color-link-font);
 }
 
-.site-footer {
-  margin-top: auto;
-  padding: calc(var(--spacing-unit) * 2) var(--spacing-unit) calc(var(--spacing-unit) * 3);
-  text-align: center;
-}
 
-.pgp-signature {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.7rem;
-  line-height: 1.4;
-  color: var(--color-text-muted);
-  white-space: pre-wrap;
-  word-break: break-all;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: var(--spacing-unit);
-  background: rgba(0, 0, 0, 0.03);
-  border-radius: 4px;
-}
 
 /* Utility Classes */
 .text-small {
